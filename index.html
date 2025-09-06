@@ -35,6 +35,10 @@
     })();
   </script>
 
+  <!-- GLOBAL noise overlay (single image, full page, no tiling) -->
+  <div class="fixed inset-0 pointer-events-none opacity-20 mix-blend-overlay -z-10"
+       style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+
   <!-- NAV -->
   <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -50,36 +54,35 @@
 
   <!-- FULL-WIDTH HERO -->
   <section class="relative">
-    <!-- Background image (safe external), with gradient overlay + optional noise -->
-    <div class="absolute inset-0 -z-10"
+    <!-- Background image with gradient overlay -->
+    <div class="absolute inset-0 -z-20"
          style="
            background-image:
              linear-gradient(to bottom, rgba(4,47,46,.85), rgba(6,78,59,.85)),
              url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80');
            background-size: cover;
            background-position: center;
-         ">
-    </div>
-    <div class="absolute inset-0 -z-10 mix-blend-overlay opacity-25"
-         style="background-image:url('noise.png'); background-size:256px 256px;"></div>
+         "></div>
 
     <div class="max-w-4xl mx-auto px-4 py-24 md:py-28">
       <!-- Glass card -->
       <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-6 py-8 md:px-12 md:py-12 text-center">
-        <!-- Optional portrait (auto-hides if missing) -->
-        <div class="flex justify-center -mt-20 mb-6">
-          <div class="w-28 h-28 rounded-full overflow-hidden ring-2 ring-white/30 shadow-soft bg-white/10">
+        <!-- Portrait (2× size) -->
+        <div class="flex justify-center -mt-24 mb-6">
+          <div class="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden ring-2 ring-white/30 shadow-soft bg-white/10">
             <img src="Ashish_CV_image.jpg" alt="Ashish Vayangankar portrait"
                  class="w-full h-full object-cover"
+                 loading="eager" fetchpriority="high"
                  onerror="this.parentElement.style.display='none'">
           </div>
         </div>
 
         <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">I’m Ashish Vayangankar.</h1>
         <p class="mt-3 text-xl md:text-2xl text-white/90 font-semibold">FEA/CAE Engineer</p>
-        <p class="mt-4 text-white/80 max-w-2xl mx-auto">
-          I work on vibration, FRF/PSD, and model calibration—aligning Abaqus + HEEDS (SHERPA) simulations with
-          experimental tests and packaging everything in clean, reproducible reports.
+        <p class="mt-4 text-white/85 max-w-3xl mx-auto">
+          I specialize in FEA with a focus on vibration analysis—bridging experiments and simulations in Abaqus.
+          I work on model calibration and optimization (HEEDS/SHERPA), build FEM tooling in Python, and have experience
+          with fatigue and damage analysis for composite structures.
         </p>
 
         <!-- Socials -->
