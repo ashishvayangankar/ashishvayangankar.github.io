@@ -105,10 +105,9 @@
   <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
     <h2 class="text-2xl font-extrabold">How I matched model to experiment</h2>
     <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
-      <li><span class="font-semibold">Modal correlation:</span> first aligned the FE model with experimental modal analysis by matching natural frequencies and mode shapes (visual nodal patterns / MAC-style checks) to establish a valid baseline.</li>
-      <li><span class="font-semibold">Objective definition:</span> formulated a weighted error that combines marker-wise displacement RMS (<em>Urms</em>) fields with PSD/FRF envelopes over the target band so both amplitude and spectral shape are captured.</li>
-      <li><span class="font-semibold">Automated calibration with HEEDS:</span> used <span class="font-semibold">HEEDS (SHERPA)</span> to drive a multi-objective, gradient-free search over Rayleigh damping and connector stiffness/damping; Abaqus runs were scripted in Python, and HEEDS minimized the above error metrics to tune parameters until convergence.</li>
-      <li><span class="font-semibold">Transfer validation:</span> applied the calibrated set across multiple build states, verified residuals and parameter plausibility, and confirmed stable solutions for Frequency, Steady-State Dynamics, and Random Response steps.</li>
+      <li><span class="font-semibold">Modal correlation:</span> first aligned the FE model with experimental modal analysis by matching natural frequencies and mode shapes to establish a valid baseline.</li>
+      <li><span class="font-semibold">Objective definition:</span> minimize the error between the FEA and experiment in terms of displacement RMS (<em>Urms</em>) and PSD/FRF curves.</li>
+      <li><span class="font-semibold">Automated calibration with HEEDS:</span> used <span class="font-semibold">HEEDS (SHERPA)</span> to drive a multi-objective, gradient-free search over modal parameters such as Rayleigh damping and connector stiffness/damping; Abaqus runs were scripted in Python, and HEEDS minimized the above error metrics to tune parameters until convergence.</li>
     </ul>
 
     <!-- IMAGE 2 -->
