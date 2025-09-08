@@ -59,7 +59,7 @@
     <h2 class="text-2xl font-extrabold">Goal in simple words</h2>
     <p class="mt-3 text-white/90 leading-relaxed">
       A headlamp experiences random vibration in a vehicle. I built a process to make a computer model behave like the real part
-      by tuning a few physical parameters (material/connector stiffness and damping). When the model and the test match well,
+      by tuning/optimizing a few physical parameters (material/connector stiffness and damping). When the model and the test match well,
       engineers can trust the model to make quicker design decisions.
     </p>
   </article>
@@ -72,15 +72,15 @@
     <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
       <li><span class="font-semibold">Set up random-vibration tests</span> on a shaker and measured motion with a 3D camera and accelerometers.</li>
       <li><span class="font-semibold">Prepared multiple build states</span> (bare housing, with modules, and with controlled connector play) and ensured clean boundary conditions and sensor placement.</li>
-      <li><span class="font-semibold">Processed raw data</span> into targets we can compare to simulation: overall motion (RMS displacement), representative mode shapes, and frequency-response trends (how much the part moves vs. frequency).</li>
-      <li><span class="font-semibold">Aligned coordinates & markers</span> so that the test points and model points refer to the same locations and directions.</li>
+      <li><span class="font-semibold">Processed raw data</span> into targets we can compare to simulation: overall motion (RMS displacement), representative mode shapes, frequency-response function, and PSD curves using Modal View software and Python scripts.</li>
+      <li><span class="font-semibold">Aligned coordinates & markers</span> so that the test points and model points refer to the same locations and directions using Zeiss GOM software.</li>
     </ul>
 
     <!-- IMAGE 1 -->
     <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
       <img src="camera_measurement_points.png" alt="Headlamp on test fixture with camera measurement points" class="w-full h-72 object-cover">
       <figcaption class="p-3 text-sm text-white/80">
-        Measurement points and test setup (replace filename if needed: <code>camera_measurement_points.png</code>).
+        Measurement points and test setup</code>).
       </figcaption>
     </figure>
   </article>
@@ -91,12 +91,14 @@
   <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
     <h2 class="text-2xl font-extrabold">How I built the simulation</h2>
     <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
-      <li>Created a linear finite-element model in <span class="font-semibold">Abaqus</span> with realistic materials and connector elements (springs + damping) to represent screws/snap-fits.</li>
+      <li>Pre-processed the assembly in <span class="font-semibold">HyperMesh</span>: created the mesh, defined boundary conditions/fixtures, and then added connector definitions to represent screws and snap-fits (with appropriate stiffness and damping).</li>
+      <li>Exported <span class="font-semibold">Abaqus</span> input files containing the model mesh, material properties, connector definitions, and analysis steps: Frequency (eigenvalue), Steady-State Dynamics, and Random Response.</li>
       <li>Kept the number of tunable parameters small so the results remain physical, explainable, and easy to maintain.</li>
       <li>Checked the model’s basic behaviour (natural frequencies and mode shapes) before moving on to calibration.</li>
     </ul>
   </article>
 </section>
+
 
 <!-- CALIBRATION -->
 <section class="max-w-5xl mx-auto px-4 mt-6">
