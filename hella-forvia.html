@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Master’s Thesis – Hella/FORVIA | Ashish Vayangankar</title>
+  <meta name="description" content="Master’s thesis at Hella/FORVIA: optimizing modal parameters for headlamp components under random vibration; experiment–simulation correlation in Abaqus." />
+  <meta name="theme-color" content="#10b981" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Helvetica Neue","Arial","Noto Sans","sans-serif"] },
+          colors: { accent: { DEFAULT: "#10b981" } },
+          boxShadow: { soft: "0 14px 36px -16px rgba(0,0,0,.35)" }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { visibility: hidden; opacity: 0; }
+    html.ready { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  </style>
+</head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
+<script>document.documentElement.classList.add('ready')</script>
+
+<!-- global soft-noise (single image) -->
+<div class="fixed inset-0 pointer-events-none opacity-20 mix-blend-overlay -z-10"
+     style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <nav class="flex items-center justify-center gap-8 text-base">
+      <a href="/" class="hover:text-accent/90 text-white/80">About</a>
+      <a href="/experience.html" class="text-white font-semibold">Experience</a>
+      <a href="/education.html" class="hover:text-accent/90 text-white/80">Education</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
+  <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-8 py-10 md:px-12 md:py-12">
+    <h1 class="text-3xl md:text-5xl font-extrabold">Master’s Thesis — Hella GmbH &amp; Co. KGaA (FORVIA)</h1>
+    <p class="mt-2 text-lg text-white/90">Optimization of Modal Parameters for Headlamp Components Under Random Vibration</p>
+    <p class="mt-1 text-white/80">Oct 2024 – Aug 2025 · Erlangen, Germany · Master’s thesis & internship</p>
+    <p class="mt-4 text-white/90"><span class="font-semibold">Note:</span> a paper based on this work is being prepared.</p>
+  </div>
+</section>
+
+<!-- GOAL -->
+<section class="max-w-5xl mx-auto px-4">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">Goal in simple words</h2>
+    <p class="mt-3 text-white/90 leading-relaxed">
+      A headlamp experiences random vibration in a vehicle. I built a process to make a computer model behave like the real part
+      by tuning a few physical parameters (material/connector stiffness and damping). When the model and the test match well,
+      engineers can trust the model to make quicker design decisions.
+    </p>
+  </article>
+</section>
+
+<!-- LAB WORK -->
+<section class="max-w-5xl mx-auto px-4 mt-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">What I did in the lab</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li><span class="font-semibold">Set up random-vibration tests</span> on a shaker and measured motion with a 3D camera and accelerometers.</li>
+      <li><span class="font-semibold">Prepared multiple build states</span> (bare housing, with modules, and with controlled connector play) and ensured clean boundary conditions and sensor placement.</li>
+      <li><span class="font-semibold">Processed raw data</span> into targets we can compare to simulation: overall motion (RMS displacement), representative mode shapes, and frequency-response trends (how much the part moves vs. frequency).</li>
+      <li><span class="font-semibold">Aligned coordinates & markers</span> so that the test points and model points refer to the same locations and directions.</li>
+    </ul>
+
+    <!-- IMAGE 1 -->
+    <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
+      <img src="camera_measurement_points.png" alt="Headlamp on test fixture with camera measurement points" class="w-full h-72 object-cover">
+      <figcaption class="p-3 text-sm text-white/80">
+        Measurement points and test setup (replace filename if needed: <code>camera_measurement_points.png</code>).
+      </figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- MODELING -->
+<section class="max-w-5xl mx-auto px-4 mt-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">How I built the simulation</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li>Created a linear finite-element model in <span class="font-semibold">Abaqus</span> with realistic materials and connector elements (springs + damping) to represent screws/snap-fits.</li>
+      <li>Kept the number of tunable parameters small so the results remain physical, explainable, and easy to maintain.</li>
+      <li>Checked the model’s basic behaviour (natural frequencies and mode shapes) before moving on to calibration.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- CALIBRATION -->
+<section class="max-w-5xl mx-auto px-4 mt-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">How I matched model to experiment</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li>Compared the model response with the test targets and computed an error that captures both “how much it moves” and “how it moves.”</li>
+      <li>Used an optimization loop to automatically tune the small set of parameters until the model matched the test response.</li>
+      <li>Verified that the tuned parameters made sense and worked across different build states, not just a single test.</li>
+    </ul>
+
+    <!-- IMAGE 2 -->
+    <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
+      <img src="correlation_z_hyperview.png" alt="Correlation map showing good agreement in Z direction" class="w-full h-72 object-cover">
+      <figcaption class="p-3 text-sm text-white/80">
+        Correlation map: agreement is strongest in the vertical (Z) direction (<code>correlation_z_hyperview.png</code>).
+      </figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- NONLINEARITY / COHERENCE -->
+<section class="max-w-5xl mx-auto px-4 mt-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">Checking for non-linear behaviour</h2>
+    <p class="mt-3 text-white/90 leading-relaxed">
+      I also checked whether connector play (small gaps) causes behaviour that a simple linear model cannot capture.
+      Coherence plots (a measure of how consistent the signal is with the input) helped spot regions where contact or friction
+      effects start to matter. For small gaps the linear model remained predictive; larger gaps showed clear signs of non-linearity.
+    </p>
+
+    <!-- IMAGE 3 -->
+    <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
+      <img src="coherence_nonlin_study.png" alt="Coherence plots at different housing regions" class="w-full h-64 object-contain bg-black/10">
+      <figcaption class="p-3 text-sm text-white/80">
+        Coherence at different areas of the housing to flag non-linear regions (<code>coherence_nonlin_study.png</code>).
+      </figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- TRANSFERABILITY + OUTCOMES -->
+<section class="max-w-5xl mx-auto px-4 mt-6 mb-16">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">Transferability & outcomes</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li>Applied the calibrated parameters first on a headlamp, then checked transferability on a second headlamp with a different structure; the method held up well.</li>
+      <li>Clear guidance on when the quick linear model is sufficient and when a more detailed contact model is worth it.</li>
+      <li>Reusable “starter” parameter sets (materials and connectors) that speed up the next program.</li>
+    </ul>
+
+    <div class="mt-5 rounded-2xl bg-emerald-800/40 ring-1 ring-white/10 p-5">
+      <p class="text-white/95">
+        <span class="font-semibold">Correlation summary:</span>
+        after calibration, the remaining differences between experiment and simulation were typically
+        within <span class="font-semibold">about 10% in the vertical (Z) direction</span> and within
+        <span class="font-semibold">about 25% overall</span>.
+      </p>
+    </div>
+
+    <div class="mt-8 text-center">
+      <a href="/experience.html" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+        ← Back to Experience
+      </a>
+    </div>
+  </article>
+</section>
+
+<footer class="py-10 text-center text-sm text-white/80">
+  © <span id="y"></span> Ashish Vayangankar
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
