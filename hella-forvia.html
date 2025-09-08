@@ -106,8 +106,8 @@
     <h2 class="text-2xl font-extrabold">How I matched model to experiment</h2>
     <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
       <li><span class="font-semibold">Modal correlation:</span> first aligned the FE model with experimental modal analysis by matching natural frequencies and mode shapes (visual nodal patterns / MAC-style checks) to establish a valid baseline.</li>
-      <li><span class="font-semibold">Objective definition:</span> formulated a weighted error that combines marker-wise displacement RMS (<em>Urms</em>) fields with PSD/FRF envelopes over the target band so both “how much” and “how” the structure responds are captured.</li>
-      <li><span class="font-semibold">Automated calibration:</span> tuned modal parameters—Rayleigh damping and connector stiffness/damping—using a multi-objective, gradient-free optimization loop driven by Python–Abaqus until convergence of the above error metrics.</li>
+      <li><span class="font-semibold">Objective definition:</span> formulated a weighted error that combines marker-wise displacement RMS (<em>Urms</em>) fields with PSD/FRF envelopes over the target band so both amplitude and spectral shape are captured.</li>
+      <li><span class="font-semibold">Automated calibration with HEEDS:</span> used <span class="font-semibold">HEEDS (SHERPA)</span> to drive a multi-objective, gradient-free search over Rayleigh damping and connector stiffness/damping; Abaqus runs were scripted in Python, and HEEDS minimized the above error metrics to tune parameters until convergence.</li>
       <li><span class="font-semibold">Transfer validation:</span> applied the calibrated set across multiple build states, verified residuals and parameter plausibility, and confirmed stable solutions for Frequency, Steady-State Dynamics, and Random Response steps.</li>
     </ul>
 
