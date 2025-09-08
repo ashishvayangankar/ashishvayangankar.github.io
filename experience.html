@@ -22,11 +22,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-800 via-teal-900 to-emerald-900">
-  <!-- subtle page-wide noise overlay (optional) -->
+  <!-- subtle page-wide noise overlay -->
   <div class="fixed inset-0 pointer-events-none opacity-15 mix-blend-overlay -z-10"
        style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
 
-  <!-- NAV (centered, consistent with homepage) -->
+  <!-- NAV -->
   <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
     <div class="max-w-6xl mx-auto px-4 py-5">
       <nav class="flex items-center justify-center gap-8 text-base">
@@ -50,41 +50,25 @@
       <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-6 py-8 md:px-10 md:py-10">
         <h1 class="text-3xl md:text-4xl font-extrabold">Work Experience</h1>
         <p class="mt-2 text-white/85 max-w-3xl">
-          Short snapshots of my roles. Click “Read more” to open the full case page.
+          I have ~3–4 years of experience, mainly in research and engineering roles.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- CARDS -->
+  <!-- EXPERIENCE CARDS -->
   <section class="max-w-6xl mx-auto px-4 pb-16">
     <div class="grid md:grid-cols-2 gap-6">
-      <!-- FORVIA -->
+
+      <!-- Hella – Master Thesis / Internship -->
       <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
         <div class="flex items-baseline justify-between">
-          <h2 class="font-semibold text-lg">Thesis Intern – FEA/CAE</h2>
-          <span class="text-xs text-white/70">FORVIA · Erlangen</span>
+          <h2 class="font-semibold text-lg">Praktikum / Abschlussarbeit (Master)</h2>
+          <span class="text-xs text-white/70">Hella GmbH &amp; Co. KGaA · Germany</span>
         </div>
         <div class="text-sm text-white/80 mt-1">Oct 2024 – Aug 2025</div>
         <p class="mt-3 text-white/85 text-sm">
-          Calibrated headlamp assembly models for 10–200 Hz random vibration; aligned FRFs and RMS with shaker tests using Abaqus + HEEDS.
-        </p>
-        <div class="mt-4">
-          <a href="/forvia.html" class="inline-flex items-center gap-2 text-accent hover:underline">
-            Read more →
-          </a>
-        </div>
-      </article>
-
-      <!-- Hella -->
-      <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
-        <div class="flex items-baseline justify-between">
-          <h2 class="font-semibold text-lg">Research Assistant – Post-processing</h2>
-          <span class="text-xs text-white/70">Hella · Germany</span>
-        </div>
-        <div class="text-sm text-white/80 mt-1">2023 – 2024</div>
-        <p class="mt-3 text-white/85 text-sm">
-          Standardized FRF plots and mode-shape galleries; built reproducible HyperWorks export flows and reporting templates.
+          Optimized modal parameters for headlamp components under random vibration; aligned linear FEA with modal test data using HEEDS + Abaqus; HyperMesh/HyperView for pre/post. :contentReference[oaicite:0]{index=0}
         </p>
         <div class="mt-4">
           <a href="/hella.html" class="inline-flex items-center gap-2 text-accent hover:underline">
@@ -93,22 +77,57 @@
         </div>
       </article>
 
-      <!-- IISc -->
+      <!-- FAU – HIWI -->
       <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
         <div class="flex items-baseline justify-between">
-          <h2 class="font-semibold text-lg">Project – Composites & Dynamics</h2>
-          <span class="text-xs text-white/70">IISc · India</span>
+          <h2 class="font-semibold text-lg">Hilfswissenschaftler (HIWI)</h2>
+          <span class="text-xs text-white/70">Lehrstuhl für Technische Mechanik · FAU Erlangen</span>
         </div>
-        <div class="text-sm text-white/80 mt-1">2022</div>
+        <div class="text-sm text-white/80 mt-1">Jun 2023 – Sep 2024</div>
         <p class="mt-3 text-white/85 text-sm">
-          Tested CFRP specimens and analyzed frequency-response; compared damping fits to measured decay to inform simplified models.
+          Built “AbaqHomo” in Python to automate RVE homogenization in Abaqus; applied periodic BCs and computed macro-stress/tangent for piezoelectric polymer composites. :contentReference[oaicite:1]{index=1}
         </p>
         <div class="mt-4">
-          <a href="/iisc.html" class="inline-flex items-center gap-2 text-accent hover:underline">
+          <a href="/fau-hiwi.html" class="inline-flex items-center gap-2 text-accent hover:underline">
             Read more →
           </a>
         </div>
       </article>
+
+      <!-- IISc – Project Assistant -->
+      <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
+        <div class="flex items-baseline justify-between">
+          <h2 class="font-semibold text-lg">Project Assistant – Composites &amp; Dynamics</h2>
+          <span class="text-xs text-white/70">Mechanics &amp; Computations Lab · IISc</span>
+        </div>
+        <div class="text-sm text-white/80 mt-1">Jul 2021 – Sep 2022</div>
+        <p class="mt-3 text-white/85 text-sm">
+          Designed a quasi-zero-stiffness isolator; set up static/dynamic tests; ran Abaqus/ANSYS studies and validated transmissibility in the 2–12 Hz band. :contentReference[oaicite:2]{index=2}
+        </p>
+        <div class="mt-4">
+          <a href="/iisc-qzs.html" class="inline-flex items-center gap-2 text-accent hover:underline">
+            Read more →
+          </a>
+        </div>
+      </article>
+
+      <!-- 3DPrintzkart – Design Engineer -->
+      <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
+        <div class="flex items-baseline justify-between">
+          <h2 class="font-semibold text-lg">Design Engineer</h2>
+          <span class="text-xs text-white/70">3DPrintzkart</span>
+        </div>
+        <div class="text-sm text-white/80 mt-1">Jan 2021 – Jun 2021</div>
+        <p class="mt-3 text-white/85 text-sm">
+          Prepared print-ready CAD models for additive manufacturing; optimized geometries for structural use-cases. :contentReference[oaicite:3]{index=3}
+        </p>
+        <div class="mt-4">
+          <a href="/3dprintzkart.html" class="inline-flex items-center gap-2 text-accent hover:underline">
+            Read more →
+          </a>
+        </div>
+      </article>
+
     </div>
   </section>
 
