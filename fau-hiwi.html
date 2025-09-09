@@ -120,38 +120,43 @@
   </article>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- HOW IT WORKS (overview for recruiters) -->
 <section class="max-w-5xl mx-auto px-4 mt-6">
   <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
-    <h2 class="text-2xl font-extrabold">How it works (at a glance)</h2>
-    <ol class="mt-4 space-y-3 text-white/90 leading-relaxed list-decimal pl-5">
-      <li><span class="font-semibold">Inputs:</span> an Abaqus <code>.inp</code> mesh and a small text file describing RVE size, dimension (2D/3D), materials, and case (e.g., <code>PIEZOELECTRIC</code>).</li>
-      <li><span class="font-semibold">Run:</span> <code>abaqus cae noGUI=abqhomo.py -- path/to/input.txt</code>. AbqHomo builds the model and applies PBCs automatically.</li>
-      <li><span class="font-semibold">Solve & average:</span> unit strains/fields are applied; reactions/fields are volume-averaged to obtain macro-stress and assemble the macro-tangent.</li>
-      <li><span class="font-semibold">Outputs:</span> tidy CSV/text files in <code>outputs/</code> (Abaqus working files in <code>abaqus_wd/</code>), ready to plug into component-level FE models.</li>
-    </ol>
+    <h2 class="text-2xl font-extrabold">How it works (overview)</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li>
+        <span class="font-semibold">Ingestion & setup:</span> I designed AbqHomo to read existing Abaqus meshes and a compact config describing the RVE bounds and physics (mechanical or piezoelectric). The tool then builds the analysis model programmatically.
+      </li>
+      <li>
+        <span class="font-semibold">Robust periodicity:</span> it automatically identifies opposite faces, pairs nodes, and applies periodic boundary conditions with guard checks (incl. dummy nodes for non-matching/orphan meshes), eliminating manual GUI work.
+      </li>
+      <li>
+        <span class="font-semibold">Automated solves & averaging:</span> AbqHomo orchestrates the set of unit load cases in Abaqus and performs volume-averaging to compute the macro-stress response of the microstructure.
+      </li>
+      <li>
+        <span class="font-semibold">Effective properties:</span> from those runs the tool assembles the full macro-tangent—mechanical stiffness <em>C*</em>, piezoelectric coupling <em>e*</em>, and permittivity <em>ε*</em>—ready to use as homogenized material data in component-scale FE models.
+      </li>
+      <li>
+        <span class="font-semibold">Outputs & scale:</span> results are written as clean tables/plots for direct reporting or import; the workflow is batchable for parameter studies and cluster execution.
+      </li>
+    </ul>
   </article>
 </section>
 
-<!-- DOC LINKS -->
+
+<!-- BACK TO EXPERIENCE -->
 <section class="max-w-5xl mx-auto px-4 mt-6 mb-16">
   <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
-    <h2 class="text-2xl font-extrabold">Docs & examples</h2>
-    <p class="mt-3 text-white/90 leading-relaxed">
-      The user guide and example problems show the exact input format, CLI usage, and post-processing layout.
-    </p>
-    <div class="mt-4 flex flex-wrap gap-3">
-      <a href="/Ashish_AbaqHomo_tool.pdf" class="rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">User Manual (PDF)</a>
-      <a href="/Example_Problem.pptx" class="rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">Example Problems (PPTX)</a>
-    </div>
-
-    <div class="mt-8 text-center">
-      <a href="/experience.html" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+    <div class="text-center">
+      <a href="/experience.html"
+         class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
         ← Back to Experience
       </a>
     </div>
   </article>
 </section>
+
 
 <footer class="py-10 text-center text-sm text-white/80">
   © <span id="y"></span> Ashish Vayangankar
