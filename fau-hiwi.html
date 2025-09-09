@@ -97,24 +97,24 @@
   </article>
 </section>
 
-<!-- WHAT WE COMPUTE -->
+<!-- WHAT ABQHOMO COMPUTES (cleaned) -->
 <section class="max-w-5xl mx-auto px-4 mt-6">
   <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
     <h2 class="text-2xl font-extrabold">What AbqHomo computes</h2>
     <p class="mt-3 text-white/90 leading-relaxed">
-      The tool outputs the <span class="font-semibold">macro-stress</span> for each unit case and the full
-      <span class="font-semibold">macro-tangent</span> (effective property matrix). For piezoelectric RVEs,
-      the matrix is block-structured: mechanical stiffness \( \mathbf{C}^* \), piezoelectric coupling \( \mathbf{e}^* \),
-      and dielectric permittivity \( \boldsymbol{\varepsilon}^* \) in Voigt notation.
+      For each unit loading, AbqHomo returns the volume-averaged <span class="font-semibold">macro-stress</span>.
+      By running a complete set of unit cases, it assembles the effective-property (or
+      <span class="font-semibold">macro-tangent</span>) matrix. For piezoelectric RVEs, the matrix is block-structured:
+      mechanical stiffness <span class="font-semibold">C*</span>, piezoelectric coupling <span class="font-semibold">e*</span>,
+      and dielectric permittivity <span class="font-semibold">ε*</span> (Voigt notation).
     </p>
 
-    <!-- Macro-tangent figure -->
-    <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
+    <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
       <img src="macro_tangent_matrix.png"
-           alt="Macro-tangent matrix (C*, e*, ε*) for piezoelectric homogenization"
-           class="w-full h-auto max-h-[28rem] object-contain mx-auto">
-      <figcaption class="p-3 text-sm text-white/80">
-        Macro-tangent \( \mathbb{C}^* \), \( \mathbf{e}^* \), \( \boldsymbol{\varepsilon}^* \) — the homogenized property matrix used in component-scale FE models.
+           alt="Macro-tangent matrix (C*, e*, ε*) used for homogenized properties"
+           class="inline-block w-3/5 h-auto object-contain mx-auto">
+      <figcaption class="mt-3 p-3 text-sm text-white/80">
+        Macro-tangent matrix [C*, e*, ε*] — homogenized properties used in component-scale FE models.
       </figcaption>
     </figure>
   </article>
