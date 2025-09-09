@@ -52,111 +52,114 @@
   </div>
 </section>
 
-<!-- TASK / ROLE -->
-<section class="max-w-5xl mx-auto px-4 mt-6">
-  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
-    <h2 class="text-2xl font-extrabold">Task</h2>
-    <p class="mt-3 text-white/90 leading-relaxed">
-      I developed <span class="font-semibold">AbqHomo</span>, a utility that automates homogenization of composite RVEs in Abaqus
-      using periodic boundary conditions (PBCs), and computes macro-stress and the full macro-tangent (effective property matrix)
-      for 2D/3D—including piezoelectric coupling.
-    </p>
-  </article>
-</section>
+<!-- CONTENT BLOCKS WITH CONSISTENT GAPS -->
+<main class="max-w-5xl mx-auto px-4 space-y-10 md:space-y-12">
 
+  <!-- TASK / ROLE -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">Task</h2>
+      <p class="mt-3 text-white/90 leading-relaxed">
+        I developed <span class="font-semibold">AbqHomo</span>, a utility that automates homogenization of composite RVEs in Abaqus
+        using periodic boundary conditions (PBCs), and computes macro-stress and the full macro-tangent (effective property matrix)
+        for 2D/3D—including piezoelectric coupling.
+      </p>
+    </article>
+  </section>
 
-<!-- MICRO → MACRO STORY -->
-<section class="max-w-5xl mx-auto px-4">
-  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <!-- Micro RVE image -->
-      <figure class="rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
-        <img src="micro_composite_mesh.png"
-             alt="Composite RVE meshed in Abaqus (e.g., PZT inclusion in polymer matrix)"
-             class="w-full h-auto max-h-[26rem] object-contain mx-auto">
-        <figcaption class="p-3 text-sm text-white/80">
-          Example RVE at the micro-scale meshed in Abaqus (e.g., PZT-5 inclusion inside a polymer matrix).
+  <!-- MICRO → MACRO STORY -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <!-- Micro RVE image -->
+        <figure class="rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
+          <img src="micro_composite_mesh.png"
+               alt="Composite RVE meshed in Abaqus (e.g., PZT inclusion in polymer matrix)"
+               class="w-full h-auto max-h-[26rem] object-contain mx-auto">
+          <figcaption class="p-3 text-sm text-white/80">
+            Example RVE at the micro-scale meshed in Abaqus (e.g., PZT-5 inclusion inside a polymer matrix).
+          </figcaption>
+        </figure>
+
+        <!-- Text -->
+        <div>
+          <h2 class="text-2xl font-extrabold">From microstructure to effective properties</h2>
+          <p class="mt-3 text-white/90 leading-relaxed">
+            To model large components made of heterogeneous materials, we need a single “effective” material.
+            AbqHomo takes a small periodic micro-model (RVE) like the one shown and applies
+            <span class="font-semibold">PBCs</span> (Periodic Boundary Conditions), solves a set of unit loadings in Abaqus,
+            and averages the response to obtain macro-level properties.
+          </p>
+          <ul class="mt-4 space-y-2 text-white/90 leading-relaxed list-disc pl-5">
+            <li>Works with orphan meshes; automatic periodic pairing + constraint equations with helper (dummy) nodes.</li>
+            <li>GUI/noGUI operation; suitable for batch studies and cluster runs.</li>
+            <li>Extends to electro-mechanical coupling (piezoelectric RVEs).</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- WHAT ABQHOMO COMPUTES -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">What AbqHomo computes</h2>
+      <p class="mt-3 text-white/90 leading-relaxed">
+        For each unit loading, AbqHomo returns the volume-averaged <span class="font-semibold">macro-stress</span>.
+        By running a complete set of unit cases, it assembles the effective-property (or
+        <span class="font-semibold">macro-tangent</span>) matrix. For piezoelectric RVEs, the matrix is block-structured:
+        mechanical stiffness <span class="font-semibold">C*</span>, piezoelectric coupling <span class="font-semibold">e*</span>,
+        and dielectric permittivity <span class="font-semibold">ε*</span> (Voigt notation).
+      </p>
+
+      <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+        <img src="macro_tangent_matrix.png"
+             alt="Macro-tangent matrix (C*, e*, ε*) used for homogenized properties"
+             class="inline-block w-3/5 h-auto object-contain mx-auto">
+        <figcaption class="mt-3 p-3 text-sm text-white/80">
+          Macro-tangent matrix [C*, e*, ε*] — homogenized properties used in component-scale FE models.
         </figcaption>
       </figure>
+    </article>
+  </section>
 
-      <!-- Text -->
-      <div>
-        <h2 class="text-2xl font-extrabold">From microstructure to effective properties</h2>
-        <p class="mt-3 text-white/90 leading-relaxed">
-          To model large components made of heterogeneous materials, we need a single “effective” material.
-          AbqHomo takes a small periodic micro-model (RVE) like the one shown and applies <span class="font-semibold">PBCs</span> (Periodic Boundary Conditions),
-          solves a set of unit loadings in Abaqus, and averages the response to obtain macro-level properties.
-        </p>
-        <ul class="mt-4 space-y-2 text-white/90 leading-relaxed list-disc pl-5">
-          <li>Works with orphan meshes; automatic periodic pairing + constraint equations with helper (dummy) nodes.</li>
-          <li>GUI/noGUI operation; suitable for batch studies and cluster runs.</li>
-          <li>Extends to electro-mechanical coupling (piezoelectric RVEs).</li>
-        </ul>
+  <!-- HOW IT WORKS (overview for recruiters) -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">How it works (overview)</h2>
+      <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+        <li>
+          <span class="font-semibold">Ingestion & setup:</span> I designed AbqHomo to read existing Abaqus meshes and a compact config describing the RVE bounds and physics (mechanical or piezoelectric). The tool then builds the analysis model programmatically.
+        </li>
+        <li>
+          <span class="font-semibold">Robust periodicity:</span> it automatically identifies opposite faces, pairs nodes, and applies periodic boundary conditions with guard checks (incl. dummy nodes for non-matching/orphan meshes), eliminating manual GUI work.
+        </li>
+        <li>
+          <span class="font-semibold">Automated solves & averaging:</span> AbqHomo orchestrates the set of unit load cases in Abaqus and performs volume-averaging to compute the macro-stress response of the microstructure.
+        </li>
+        <li>
+          <span class="font-semibold">Effective properties:</span> from those runs the tool assembles the full macro-tangent—mechanical stiffness <em>C*</em>, piezoelectric coupling <em>e*</em>, and permittivity <em>ε*</em>—ready to use as homogenized material data in component-scale FE models.
+        </li>
+        <li>
+          <span class="font-semibold">Outputs & scale:</span> results are written as clean tables/plots for direct reporting or import; the workflow is batchable for parameter studies and cluster execution.
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- BACK TO EXPERIENCE -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <div class="text-center">
+        <a href="/experience.html"
+           class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+          ← Back to Experience
+        </a>
       </div>
-    </div>
-  </article>
-</section>
+    </article>
+  </section>
 
-<!-- WHAT ABQHOMO COMPUTES (cleaned) -->
-<section class="max-w-5xl mx-auto px-4 mt-6">
-  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
-    <h2 class="text-2xl font-extrabold">What AbqHomo computes</h2>
-    <p class="mt-3 text-white/90 leading-relaxed">
-      For each unit loading, AbqHomo returns the volume-averaged <span class="font-semibold">macro-stress</span>.
-      By running a complete set of unit cases, it assembles the effective-property (or
-      <span class="font-semibold">macro-tangent</span>) matrix. For piezoelectric RVEs, the matrix is block-structured:
-      mechanical stiffness <span class="font-semibold">C*</span>, piezoelectric coupling <span class="font-semibold">e*</span>,
-      and dielectric permittivity <span class="font-semibold">ε*</span> (Voigt notation).
-    </p>
-
-    <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
-      <img src="macro_tangent_matrix.png"
-           alt="Macro-tangent matrix (C*, e*, ε*) used for homogenized properties"
-           class="inline-block w-3/5 h-auto object-contain mx-auto">
-      <figcaption class="mt-3 p-3 text-sm text-white/80">
-        Macro-tangent matrix [C*, e*, ε*] — homogenized properties used in component-scale FE models.
-      </figcaption>
-    </figure>
-  </article>
-</section>
-
-<!-- HOW IT WORKS (overview for recruiters) -->
-<section class="max-w-5xl mx-auto px-4 mt-6">
-  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
-    <h2 class="text-2xl font-extrabold">How it works (overview)</h2>
-    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
-      <li>
-        <span class="font-semibold">Ingestion & setup:</span> I designed AbqHomo to read existing Abaqus meshes and a compact config describing the RVE bounds and physics (mechanical or piezoelectric). The tool then builds the analysis model programmatically.
-      </li>
-      <li>
-        <span class="font-semibold">Robust periodicity:</span> it automatically identifies opposite faces, pairs nodes, and applies periodic boundary conditions with guard checks (incl. dummy nodes for non-matching/orphan meshes), eliminating manual GUI work.
-      </li>
-      <li>
-        <span class="font-semibold">Automated solves & averaging:</span> AbqHomo orchestrates the set of unit load cases in Abaqus and performs volume-averaging to compute the macro-stress response of the microstructure.
-      </li>
-      <li>
-        <span class="font-semibold">Effective properties:</span> from those runs the tool assembles the full macro-tangent—mechanical stiffness <em>C*</em>, piezoelectric coupling <em>e*</em>, and permittivity <em>ε*</em>—ready to use as homogenized material data in component-scale FE models.
-      </li>
-      <li>
-        <span class="font-semibold">Outputs & scale:</span> results are written as clean tables/plots for direct reporting or import; the workflow is batchable for parameter studies and cluster execution.
-      </li>
-    </ul>
-  </article>
-</section>
-
-
-<!-- BACK TO EXPERIENCE -->
-<section class="max-w-5xl mx-auto px-4 mt-6 mb-16">
-  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
-    <div class="text-center">
-      <a href="/experience.html"
-         class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
-        ← Back to Experience
-      </a>
-    </div>
-  </article>
-</section>
-
+</main>
 
 <footer class="py-10 text-center text-sm text-white/80">
   © <span id="y"></span> Ashish Vayangankar
