@@ -36,11 +36,11 @@
 <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
   <div class="max-w-6xl mx-auto px-4 py-5">
     <nav class="flex items-center justify-center gap-8 text-base">
-      <a href="index.html"      class="hover:text-accent/90 text-white/80">About</a>
-      <a href="experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
-      <a href="education.html"  class="hover:text-accent/90 text-white/80">Education</a>
-      <a href="skills.html"     class="hover:text-accent/90 text-white/80">Skills</a>
-      <a href="projects.html"   class="text-white font-semibold">Projects</a>
+      <a href="/"               class="hover:text-accent/90 text-white/80">About</a>
+      <a href="/experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
+      <a href="/education.html"  class="hover:text-accent/90 text-white/80">Education</a>
+      <a href="/skills.html"     class="hover:text-accent/90 text-white/80">Skills</a>
+      <a href="/projects.html"   class="text-white font-semibold">Projects</a>
     </nav>
   </div>
 </header>
@@ -60,17 +60,16 @@
     <h2 class="sr-only">Major project</h2>
     <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
       <div class="flex items-start justify-between gap-4">
-        <h3 class="text-2xl font-extrabold">Simulation study on low-velocity impact on FRPs — Bachelor Thesis</h3>
+        <h3 class="text-2xl font-extrabold">Simulation study of low-velocity impact on FRPs — Bachelor Thesis</h3>
         <div class="text-sm text-white/70 whitespace-nowrap">BMS College of Engineering · 2020</div>
       </div>
       <p class="mt-3 text-white/90 leading-relaxed">
-        Built explicit finite-element models of AS4/8552 laminates in Abaqus/Explicit to study low-velocity impact.
-        Modeled matrix cracking and fibre failure (Hashin / Puck) and inter-ply delamination using cohesive interfaces
-        and tie constraints. Correlated force–time, displacement–time, and C-scan-style damage patterns with published
-        benchmarks to validate the approach across impact energies.
+        Built explicit finite-element models of AS4/8552 laminates in Abaqus/Explicit. Modeled matrix cracking and fibre failure
+        (Hashin / Puck) and inter-ply delamination with cohesive interfaces and tie constraints. Correlated force–time,
+        displacement–time, and damage patterns with published benchmarks across impact energies.
       </p>
       <div class="mt-4">
-        <a href="frp-impact.html" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+        <a href="/frp-impact.html" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
           Read more →
         </a>
       </div>
@@ -89,11 +88,9 @@
           <div class="text-sm text-white/70 whitespace-nowrap">FAU · 2025</div>
         </div>
         <p class="mt-2 text-white/90">
-          Developed an Abaqus-driven FE homogenization model to capture effective electromechanical response of a composite;
-          studied how matrix stiffness, inclusion shape, and volume fraction influence piezoelectric coupling. Produced maps
-          of stress/strain/e-field to guide robust design.
+          FE homogenization in Abaqus to obtain effective electromechanical properties; explored effects of matrix stiffness, inclusion shape, and volume fraction.
         </p>
-        <a href="fau-hiwi.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="/fau-hiwi.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
 
       <!-- Rockfall net -->
@@ -103,10 +100,9 @@
           <div class="text-sm text-white/70 whitespace-nowrap">FAU · 2025</div>
         </div>
         <p class="mt-2 text-white/90">
-          Built a spring-damper contact-dynamics model to estimate impact forces and energy dissipation in wire-rope
-          rockfall nets; compared scenarios to support protection-system sizing.
+          Spring-damper contact model to estimate impact forces and energy dissipation in wire-rope nets.
         </p>
-        <a href="rockfall-net.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="/rockfall-net.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
 
       <!-- Optimization algorithms -->
@@ -116,10 +112,9 @@
           <div class="text-sm text-white/70 whitespace-nowrap">FAU · 2024</div>
         </div>
         <p class="mt-2 text-white/90">
-          Implemented and benchmarked gradient-descent and Newton-type methods; added convergence diagnostics and line-search
-          strategies; compared performance on smooth and noisy objectives.
+          Implemented gradient-descent and Newton-type methods with convergence diagnostics and line-search variants.
         </p>
-        <a href="optimization-algos.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="/optimization-algos.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
 
       <!-- Pantograph -->
@@ -129,10 +124,9 @@
           <div class="text-sm text-white/70 whitespace-nowrap">IISc · 2021</div>
         </div>
         <p class="mt-2 text-white/90">
-          Performed nonlinear finite-element analysis in Abaqus to assess load-bearing capacity and stiffness of a simplified
-          two-dimensional pantograph mechanism.
+          Nonlinear FE study in Abaqus to assess load-bearing capacity and stiffness of a simplified pantograph.
         </p>
-        <a href="pantograph.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="/pantograph.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
 
       <!-- Hyperthermia -->
@@ -142,10 +136,9 @@
           <div class="text-sm text-white/70 whitespace-nowrap">2020</div>
         </div>
         <p class="mt-2 text-white/90">
-          Demonstrated the effect of nanoparticles in enhancing cancer-cell destruction during hyperthermia via coupled
-          thermal–biological simulations in COMSOL Multiphysics.
+          COMSOL simulations to study nanoparticle-enhanced heating for cancer-cell destruction.
         </p>
-        <a href="hyperthermia.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="/hyperthermia.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
     </div>
   </section>
@@ -154,7 +147,7 @@
   <section>
     <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
       <div class="text-center">
-        <a href="index.html"
+        <a href="/"
            class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
           ← Back to About
         </a>
