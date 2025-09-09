@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IISc – Quasi-Zero Stiffness (QZS) Isolator | Ashish Vayangankar</title>
+  <meta name="description" content="Designed and tested a quasi-zero stiffness (QZS) vibration isolator at IISc: static & dynamic experiments, Abaqus simulations, and transmissibility validation." />
+  <meta name="theme-color" content="#10b981" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Helvetica Neue","Arial","Noto Sans","sans-serif"] },
+          colors: { accent: { DEFAULT: "#10b981" } },
+          boxShadow: { soft: "0 14px 36px -16px rgba(0,0,0,.35)" }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { visibility: hidden; opacity: 0; }
+    html.ready { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  </style>
+</head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
+<script>document.documentElement.classList.add('ready')</script>
+
+<!-- soft noise overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-20 mix-blend-overlay -z-10"
+     style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <nav class="flex items-center justify-center gap-8 text-base">
+      <a href="/" class="hover:text-accent/90 text-white/80">About</a>
+      <a href="/experience.html" class="text-white font-semibold">Experience</a>
+      <a href="/education.html" class="hover:text-accent/90 text-white/80">Education</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
+  <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-8 py-10 md:px-12 md:py-12">
+    <h1 class="text-3xl md:text-5xl font-extrabold">Project Assistant — IISc, Composites & Dynamics Lab</h1>
+    <p class="mt-2 text-lg text-white/90">Quasi-Zero Stiffness (QZS) Vibration Isolator</p>
+    <p class="mt-1 text-white/80">Jul 2021 – Sep 2022 · Bangalore, India</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="max-w-5xl mx-auto px-4 space-y-10 md:space-y-12">
+
+  <!-- GOAL -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">What we set out to build</h2>
+      <p class="mt-3 text-white/90 leading-relaxed">
+        A <span class="font-semibold">quasi-zero stiffness (QZS) isolator</span> combines a positive-stiffness element
+        (linear spring) with a negative-stiffness element so that, over a design window, the
+        <em>force–displacement</em> curve is nearly flat. That “flat zone” lets the base move while the payload
+        sees minimal transmitted force — ideal for isolating low-frequency vibration.
+      </p>
+
+      <!-- Two-up visuals (compact) -->
+      <div class="mt-6 grid sm:grid-cols-2 gap-6">
+        <figure class="rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+          <img src="qzs_mechanism.png" alt="QZS mechanism: linear spring kp with two negative-stiffness branches kn"
+               class="inline-block w-full max-w-[520px] h-auto object-contain mx-auto">
+          <figcaption class="mt-2 p-3 text-xs text-white/80">
+            QZS concept: positive stiffness (<em>k<sub>p</sub></em>) + negative stiffness branches (<em>k<sub>n</sub></em>).
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+          <img src="qzs_kn_kp_piecewise.png" alt="Piecewise stiffness: linear element and non-linear element"
+               class="inline-block w-full max-w-[520px] h-auto object-contain mx-auto">
+          <figcaption class="mt-2 p-3 text-xs text-white/80">
+            Target behavior: combining elements to create a near-flat force region.
+          </figcaption>
+        </figure>
+      </div>
+    </article>
+  </section>
+
+  <!-- STATIC DESIGN & TESTS -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">Design and static characterization</h2>
+      <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+        <li>Built the QZS cell using a linear spring and a pre-buckled/geometry-based negative-stiffness element.</li>
+        <li>Ran displacement-controlled tests to map the force–displacement curve and identify the QZS window.</li>
+        <li>3D-printed TPU versions showed hysteresis; switching to <span class="font-semibold">spring steel</span> yielded a clean, repeatable response.</li>
+      </ul>
+
+      <!-- Single figure, modest width -->
+      <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+        <img src="qzs_force_displacement_region.png" alt="Measured force–displacement with marked isolation region"
+             class="inline-block w-full md:w-4/5 max-w-[820px] h-auto object-contain mx-auto">
+        <figcaption class="mt-2 p-3 text-xs text-white/80">
+          Static force–displacement: flat region (QZS window) used to set operating preload/displacement.
+        </figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <!-- DYNAMIC TESTS -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">Dynamic tests and transmissibility</h2>
+      <p class="mt-3 text-white/90 leading-relaxed">
+        With the static window set, we ran sine tests across frequency and amplitude on a base-excitation rig and
+        evaluated <em>transmissibility</em> (output/input). The isolator <span class="font-semibold">reliably reduced
+        transmitted motion at low frequencies (≈ up to 2&nbsp;Hz)</span>, in line with literature trends.
+      </p>
+
+      <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+        <img src="qzs_transmissibility.png" alt="Transmissibility vs frequency ratio (dB scale)"
+             class="inline-block w-full md:w-4/5 max-w-[820px] h-auto object-contain mx-auto">
+        <figcaption class="mt-2 p-3 text-xs text-white/80">
+          Transmissibility curve showing isolation at the low-frequency end.
+        </figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <!-- SIMULATION -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">Simulation in Abaqus</h2>
+      <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+        <li>Built a planar FE model to tune geometry, preload, and stiffness characteristics.</li>
+        <li>Modal analysis followed by base-excitation runs produced displacement histories used to compute transmissibility.</li>
+        <li>Simulation trends matched the experiments qualitatively and guided design variants.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- BACK -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <div class="text-center">
+        <a href="/experience.html"
+           class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+          ← Back to Experience
+        </a>
+      </div>
+    </article>
+  </section>
+
+</main>
+
+<footer class="py-10 text-center text-sm text-white/80">
+  © <span id="y"></span> Ashish Vayangankar
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
