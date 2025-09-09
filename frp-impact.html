@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulation study of low-velocity impact in FRPs | Ashish Vayangankar</title>
+  <meta name="description" content="Published work: FE simulation of low-velocity impact damage in FRP laminates using VUMAT + cohesive zone modeling; damage correlation and CAI strength trends." />
+  <meta name="theme-color" content="#10b981" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Helvetica Neue","Arial","Noto Sans","sans-serif"] },
+          colors: { accent: { DEFAULT: "#10b981" } },
+          boxShadow: { soft: "0 14px 36px -16px rgba(0,0,0,.35)" }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { visibility: hidden; opacity: 0; }
+    html.ready { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  </style>
+</head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
+<script>document.documentElement.classList.add('ready')</script>
+
+<!-- soft noise overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-20 mix-blend-overlay -z-10"
+     style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <nav class="flex items-center justify-center gap-8 text-base">
+      <a href="/" class="hover:text-accent/90 text-white/80">About</a>
+      <a href="/experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
+      <a href="/education.html" class="hover:text-accent/90 text-white/80">Education</a>
+      <a href="/skills.html" class="hover:text-accent/90 text-white/80">Skills</a>
+      <a href="/projects.html" class="hover:text-accent/90 text-white/80">Projects</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
+  <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-8 py-10 md:px-12 md:py-12">
+    <h1 class="text-3xl md:text-5xl font-extrabold">Simulation study of low-velocity impact damage in FRPs</h1>
+    <p class="mt-2 text-lg text-white/90">Numerical prediction of matrix cracking, delamination and CAI trends</p>
+    <p class="mt-3 text-white/90">
+      <span class="font-semibold">Published:</span>
+      <a href="https://link.springer.com/chapter/10.1007/978-981-99-4721-8_15" target="_blank" rel="noopener"
+         class="underline decoration-accent/60 underline-offset-4 hover:text-accent">Springer – VETOMAC 2021 Proceedings</a>
+    </p>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="max-w-5xl mx-auto px-4">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">What this work is about</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li>Built detailed finite-element models of AS4/8552 laminates to simulate <span class="font-semibold">low-velocity impact (LVI)</span> and the resulting barely visible impact damage.</li>
+      <li>Captured <span class="font-semibold">intralayer damage</span> (matrix cracking, fiber failure) with a user VUMAT and <span class="font-semibold">interlayer damage</span> (delamination) using cohesive zone modelling (traction–separation law, QUADS initiation).</li>
+      <li>Post-impact, simulated <span class="font-semibold">Compression-After-Impact (CAI)</span> to study the drop in residual compressive strength with increasing impact energy.</li>
+      <li>Compared key response signatures (force–time, damage patterns) against established literature; obtained the classical peanut-shaped delamination and consistent cracking envelopes.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- IMAGE: FORCE–TIME -->
+<section class="max-w-5xl mx-auto px-4 mt-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h3 class="text-xl font-extrabold">Impact response at 20 J</h3>
+    <p class="mt-2 text-white/90 leading-relaxed">
+      A typical LVI event shows a rise to a peak load and a noticeable drop once significant damage initiates. The curve below
+      is representative of the simulated 20&nbsp;J case.
+    </p>
+    <figure class="mt-5 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+      <img src="frp_force_time_20J.png" alt="Force–time history for 20 J impact" class="inline-block w-full max-w-3xl h-auto object-contain mx-auto">
+      <figcaption class="p-3 text-sm text-white/80">Force–time history (20&nbsp;J) from the simulation.</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- MODELING DETAILS -->
+<section class="max-w-5xl mx-auto px-4 mt-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">Modeling approach (in brief)</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li><span class="font-semibold">Intralayer damage:</span> Hashin and Puck criteria inside a VUMAT to track matrix/fiber failure; damage variables drive stiffness reduction.</li>
+      <li><span class="font-semibold">Interlayer damage:</span> thin cohesive layers between plies, quadratic nominal-stress initiation (QUADS) and energy-based evolution to form delamination.</li>
+      <li><span class="font-semibold">Impact setup:</span> ABAQUS/Explicit with a rigid hemispherical impactor; refined mesh in the impact zone and coarser mesh away from it.</li>
+      <li><span class="font-semibold">CAI simulation:</span> post-impact damage field transferred to a compression model to estimate residual strength trends.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- IMAGES: DAMAGE PROFILES -->
+<section class="max-w-5xl mx-auto px-4 mt-6 grid md:grid-cols-2 gap-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h3 class="text-xl font-extrabold">Matrix cracking envelope (20 J)</h3>
+    <p class="mt-2 text-white/90 leading-relaxed">
+      Envelopes show layer-wise matrix cracking aligned with local fiber direction and propagating through the thickness.
+    </p>
+    <figure class="mt-5 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+      <img src="frp_matrix_cracking_20J.png" alt="Matrix cracking profile at 20 J" class="inline-block w-full max-w-3xl h-auto object-contain mx-auto">
+      <figcaption class="p-3 text-sm text-white/80">Matrix cracking profiles (20&nbsp;J), layer-wise and overlaid.</figcaption>
+    </figure>
+  </article>
+
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h3 class="text-xl font-extrabold">Delamination pattern (20 J)</h3>
+    <p class="mt-2 text-white/90 leading-relaxed">
+      Cohesive-layer damage reveals the classical peanut-shaped delamination, oriented with the fiber direction of the lower ply.
+    </p>
+    <figure class="mt-5 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+      <img src="frp_delam_20J.png" alt="Delamination pattern at 20 J" class="inline-block w-full max-w-3xl h-auto object-contain mx-auto">
+      <figcaption class="p-3 text-sm text-white/80">Cohesive-damage contour (20&nbsp;J) showing delamination extent.</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- FINDINGS -->
+<section class="max-w-5xl mx-auto px-4 mt-6 mb-16">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">Key findings</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li>The simulation reproduced the expected <span class="font-semibold">force–time signature</span> of LVI and the peanut-shaped <span class="font-semibold">delamination</span>.</li>
+      <li>Layer-wise <span class="font-semibold">matrix cracking</span> patterns and their orientation agreed with reported trends for similar layups.</li>
+      <li><span class="font-semibold">Residual compressive strength</span> from CAI decreased with impact energy; overall trends matched literature for comparable materials.</li>
+      <li>Threshold load for major damage onset was somewhat conservative in the model—typical when contact stiffness, material data, or manufacturing effects differ from tests.</li>
+    </ul>
+
+    <div class="mt-8 text-center">
+      <a href="/projects.html" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+        ← Back to Projects
+      </a>
+    </div>
+  </article>
+</section>
+
+<footer class="py-10 text-center text-sm text-white/80">
+  © <span id="y"></span> Ashish Vayangankar
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
