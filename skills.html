@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skills | Ashish Vayangankar</title>
+  <meta name="description" content="Skills and tools: FEA, vibration & modal analysis, Python automation, HyperMesh/HyperView, Abaqus, HEEDS, experimental testing, CAD & 3D printing." />
+  <meta name="theme-color" content="#10b981" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Helvetica Neue","Arial","Noto Sans","sans-serif"] },
+          colors: { accent: { DEFAULT: "#10b981" } },
+          boxShadow: { soft: "0 14px 36px -16px rgba(0,0,0,.35)" }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { visibility: hidden; opacity: 0; }
+    html.ready { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  </style>
+</head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
+<script>document.documentElement.classList.add('ready')</script>
+
+<!-- soft noise overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-20 mix-blend-overlay -z-10"
+     style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <nav class="flex items-center justify-center gap-8 text-base">
+      <a href="/" class="hover:text-accent/90 text-white/80">About</a>
+      <a href="/experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
+      <a href="/education.html" class="hover:text-accent/90 text-white/80">Education</a>
+      <a href="/skills.html" class="text-white font-semibold">Skills</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
+  <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-8 py-10 md:px-12 md:py-12">
+    <h1 class="text-3xl md:text-5xl font-extrabold">Skills</h1>
+    <p class="mt-2 text-lg text-white/90">Tools, methods, and workflows I use to turn tests and models into decisions.</p>
+  </div>
+</section>
+
+<!-- SKILL BLOCKS -->
+<main class="max-w-5xl mx-auto px-4 space-y-6 md:space-y-8">
+
+  <!-- Simulation & FEA -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">Simulation & FEA</h2>
+      <p class="mt-2 text-white/90">Linear dynamics, vibration & correlation, model updating, and reporting.</p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <!-- tools -->
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Abaqus (FEA)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">ANSYS (basics)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">HyperMesh (pre)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">HyperView (post)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">HEEDS (SHERPA)</span>
+        <!-- methods -->
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Modal analysis</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Steady-state dynamics</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Random vibration (PSD/FRF)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Model calibration / updating</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Connector modeling (springs/dashpots)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Rayleigh damping</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">RVE homogenization</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Periodic boundary conditions (PBC)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Piezoelectric coupling (basics)</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- Test & Data Acquisition -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">Test & Data Acquisition</h2>
+      <p class="mt-2 text-white/90">Setting up clean boundary conditions, collecting signals, and turning them into targets.</p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Shaker testing</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Accelerometers</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">3D camera / DIC (Zeiss GOM)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Experimental modal analysis</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">FRF / PSD computation</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Welch method & coherence</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Test–model correlation</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- Programming & Automation -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">Programming & Automation</h2>
+      <p class="mt-2 text-white/90">Scripting solvers, cleaning data, and automating calibration/search.</p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Python</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Abaqus scripting (Python)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">NumPy / Pandas / Matplotlib</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">SciPy (signal, optimize)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">HEEDS process automation</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Git (basics)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">MATLAB (basics)</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- CAD & Prototyping -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">CAD & Prototyping</h2>
+      <p class="mt-2 text-white/90">Designing printable parts and iterating quickly.</p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Fusion 360</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">3D printing (FDM)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Slicing parameters (layer, infill, supports)</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Rapid prototyping</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- Reporting & Communication -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <h2 class="text-2xl font-extrabold">Reporting & Communication</h2>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">HyperView report flows</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Excel / PowerPoint</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">LaTeX</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10">Clear, concise documentation</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- BACK -->
+  <section>
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+      <div class="text-center">
+        <a href="/experience.html"
+           class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+          ← Back to Experience
+        </a>
+      </div>
+    </article>
+  </section>
+
+</main>
+
+<footer class="py-10 text-center text-sm text-white/80">
+  © <span id="y"></span> Ashish Vayangankar
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
