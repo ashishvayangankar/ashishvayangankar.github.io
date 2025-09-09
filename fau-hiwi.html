@@ -129,13 +129,13 @@
       <h2 class="text-2xl font-extrabold">How it works (overview)</h2>
       <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
         <li>
-          <span class="font-semibold">Ingestion & setup:</span> I designed AbqHomo to read existing Abaqus meshes and a compact config describing the RVE bounds and physics (mechanical or piezoelectric). The tool then builds the analysis model programmatically.
+          <span class="font-semibold">Inputs & setup:</span> I designed AbqHomo to read existing Abaqus meshes and a compact config describing the RVE bounds and physics (mechanical or piezoelectric). The tool then builds the analysis model programmatically.
         </li>
         <li>
           <span class="font-semibold">Robust periodicity:</span> it automatically identifies opposite faces, pairs nodes, and applies periodic boundary conditions with guard checks (incl. dummy nodes for non-matching/orphan meshes), eliminating manual GUI work.
         </li>
         <li>
-          <span class="font-semibold">Automated solves & averaging:</span> AbqHomo orchestrates the set of unit load cases in Abaqus and performs volume-averaging to compute the macro-stress response of the microstructure.
+          <span class="font-semibold">Automated solves & averaging:</span> AbqHomo computes the set of unit load cases in Abaqus and performs volume-averaging to compute the macro-stress response of the microstructure.
         </li>
         <li>
           <span class="font-semibold">Effective properties:</span> from those runs the tool assembles the full macro-tangent—mechanical stiffness <em>C*</em>, piezoelectric coupling <em>e*</em>, and permittivity <em>ε*</em>—ready to use as homogenized material data in component-scale FE models.
