@@ -28,6 +28,10 @@
 <body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
 <script>document.documentElement.classList.add('ready')</script>
 
+<!-- subtle “project planning” background under the gradient -->
+<div class="fixed inset-0 -z-20 opacity-25"
+     style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2000&q=80'); background-size:cover; background-position:center;"></div>
+
 <!-- soft noise overlay -->
 <div class="fixed inset-0 pointer-events-none opacity-20 mix-blend-overlay -z-10"
      style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
@@ -36,11 +40,11 @@
 <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
   <div class="max-w-6xl mx-auto px-4 py-5">
     <nav class="flex items-center justify-center gap-8 text-base">
-      <a href="/"               class="hover:text-accent/90 text-white/80">About</a>
-      <a href="/experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
-      <a href="/education.html"  class="hover:text-accent/90 text-white/80">Education</a>
-      <a href="/skills.html"     class="hover:text-accent/90 text-white/80">Skills</a>
-      <a href="/projects.html"   class="text-white font-semibold">Projects</a>
+      <a href="index.html"       class="hover:text-accent/90 text-white/80">About</a>
+      <a href="experience.html"  class="hover:text-accent/90 text-white/80">Experience</a>
+      <a href="education.html"   class="hover:text-accent/90 text-white/80">Education</a>
+      <a href="skills.html"      class="hover:text-accent/90 text-white/80">Skills</a>
+      <a href="projects.html"    class="text-white font-semibold">Projects</a>
     </nav>
   </div>
 </header>
@@ -69,7 +73,7 @@
         displacement–time, and damage patterns with published benchmarks across impact energies.
       </p>
       <div class="mt-4">
-        <a href="/frp-impact.html" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+        <a href="frp-impact.html" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
           Read more →
         </a>
       </div>
@@ -90,7 +94,7 @@
         <p class="mt-2 text-white/90">
           FE homogenization in Abaqus to obtain effective electromechanical properties; explored effects of matrix stiffness, inclusion shape, and volume fraction.
         </p>
-        <a href="/fau-hiwi.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="fau-hiwi.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
 
       <!-- Rockfall net -->
@@ -102,7 +106,7 @@
         <p class="mt-2 text-white/90">
           Spring-damper contact model to estimate impact forces and energy dissipation in wire-rope nets.
         </p>
-        <a href="/rockfall-net.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="rockfall-net.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
 
       <!-- Optimization algorithms -->
@@ -114,7 +118,7 @@
         <p class="mt-2 text-white/90">
           Implemented gradient-descent and Newton-type methods with convergence diagnostics and line-search variants.
         </p>
-        <a href="/optimization-algos.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="optimization-algos.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
 
       <!-- Pantograph -->
@@ -126,7 +130,7 @@
         <p class="mt-2 text-white/90">
           Nonlinear FE study in Abaqus to assess load-bearing capacity and stiffness of a simplified pantograph.
         </p>
-        <a href="/pantograph.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="pantograph.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
 
       <!-- Hyperthermia -->
@@ -138,7 +142,7 @@
         <p class="mt-2 text-white/90">
           COMSOL simulations to study nanoparticle-enhanced heating for cancer-cell destruction.
         </p>
-        <a href="/hyperthermia.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
+        <a href="hyperthermia.html" class="mt-3 inline-block text-accent hover:underline">Read more →</a>
       </article>
     </div>
   </section>
@@ -147,7 +151,7 @@
   <section>
     <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
       <div class="text-center">
-        <a href="/"
+        <a href="index.html"
            class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
           ← Back to About
         </a>
