@@ -20,80 +20,94 @@
   </script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { visibility: hidden; opacity: 0; }
+    html.ready { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  </style>
 </head>
 <body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
-  <!-- optional noise -->
-  <div class="fixed inset-0 pointer-events-none opacity-15 mix-blend-overlay -z-10"
-       style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+<script>document.documentElement.classList.add('ready')</script>
 
-  <!-- NAV -->
-  <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
-    <div class="max-w-6xl mx-auto px-4 py-5">
-      <nav class="flex items-center justify-center gap-8 text-base">
-        <a href="/" class="hover:text-accent/90 text-white/80">About</a>
-        <a href="/experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
-        <a href="/education.html" class="text-white font-semibold">Education</a>
-        <a href="/skills.html" class="hover:text-accent/90 text-white/80">Skills</a>
-        <a href="/projects.html" class="hover:text-accent/90 text-white/80">Projects</a>
-      </nav>
-    </div>
-  </header>
+<!-- books background (under gradient) -->
+<div class="fixed inset-0 -z-20 opacity-25"
+     style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=2000&q=80'); background-size:cover; background-position:center;"></div>
 
-  <!-- EDUCATION -->
-  <section class="max-w-5xl mx-auto px-4 py-16">
-    <h1 class="text-3xl md:text-4xl font-extrabold">Education</h1>
+<!-- optional soft noise -->
+<div class="fixed inset-0 pointer-events-none opacity-15 mix-blend-overlay -z-10"
+     style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
 
-    <div class="mt-8 space-y-7">
-      <!-- M.Sc. -->
-      <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
-        <div class="font-semibold text-lg">M.Sc. Computational Engineering</div>
-        <div class="text-sm text-white/80 mt-1">
-          Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) · 2022 – Present
-        </div>
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <nav class="flex items-center justify-center gap-8 text-base">
+      <a href="/" class="hover:text-accent/90 text-white/80">About</a>
+      <a href="/experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
+      <a href="/education.html" class="text-white font-semibold">Education</a>
+      <a href="/skills.html" class="hover:text-accent/90 text-white/80">Skills</a>
+      <a href="/projects.html" class="hover:text-accent/90 text-white/80">Projects</a>
+    </nav>
+  </div>
+</header>
 
-        <p class="mt-3 text-sm text-white/85">
-          <span class="font-semibold">Address:</span> 91054, Erlangen, Germany
-        </p>
-        <p class="mt-1 text-sm text-white/85">
-          <span class="font-semibold">Specialization:</span> Solid mechanics & dynamics
-        </p>
-        <p class="mt-1 text-sm text-white/85">
-          <span class="font-semibold">Grade / ECTS:</span> 2.4 · 82.5 / 120 ECTS completed
-        </p>
-        <p class="mt-1 text-sm text-white/85">
-          <span class="font-semibold">Thesis topic:</span> Optimization of modal parameters for headlamp components under random vibration (linear FEA).
-        </p>
-      </article>
+<!-- EDUCATION -->
+<section class="max-w-5xl mx-auto px-4 py-16">
+  <h1 class="text-3xl md:text-4xl font-extrabold">Education</h1>
 
-      <!-- B.E. -->
-      <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
-        <div class="font-semibold text-lg">B.E. Mechanical Engineering</div>
-        <div class="text-sm text-white/80 mt-1">
-          BMS College of Engineering · 2016 – 2020
-        </div>
+  <div class="mt-8 space-y-7">
+    <!-- M.Sc. -->
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
+      <div class="font-semibold text-lg">M.Sc. Computational Engineering</div>
+      <div class="text-sm text-white/80 mt-1">
+        Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) · 2022 – Present
+      </div>
 
-        <p class="mt-3 text-sm text-white/85">
-          <span class="font-semibold">Address:</span> 560019, Bangalore, India
-        </p>
-        <p class="mt-1 text-sm text-white/85">
-          <span class="font-semibold">Grade:</span> 8.59 / 10 (CGPA)
-          <span class="mx-2">·</span>
-          <span class="font-semibold">Credits:</span> 200
-        </p>
-        
-        <p class="mt-1 text-sm text-white/85">
-          <span class="font-semibold">Thesis topic:</span> Simulation study on low-velocity impact on FRPs.
-        </p>
-      </article>
-    </div>
-  </section>
+      <p class="mt-3 text-sm text-white/85">
+        <span class="font-semibold">Address:</span> 91054, Erlangen, Germany
+      </p>
+      <p class="mt-1 text-sm text-white/85">
+        <span class="font-semibold">Specialization:</span> Solid mechanics &amp; dynamics
+      </p>
+      <p class="mt-1 text-sm text-white/85">
+        <span class="font-semibold">Grade / ECTS:</span> 2.4 · 82.5 / 120 ECTS completed
+      </p>
+      <p class="mt-1 text-sm text-white/85">
+        <span class="font-semibold">Thesis topic:</span>
+        <a href="/hella-forvia.html"
+           class="underline decoration-accent/60 underline-offset-4 hover:text-accent">
+          Optimization of modal parameters for headlamp components under random vibration (linear FEA).
+        </a>
+      </p>
+    </article>
 
-  <footer class="py-10 text-center text-sm text-white/80">
-    © <span id="y"></span> Ashish Vayangankar
-  </footer>
+    <!-- B.E. -->
+    <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6">
+      <div class="font-semibold text-lg">B.E. Mechanical Engineering</div>
+      <div class="text-sm text-white/80 mt-1">
+        BMS College of Engineering · 2016 – 2020
+      </div>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+      <p class="mt-3 text-sm text-white/85">
+        <span class="font-semibold">Address:</span> 560019, Bangalore, India
+      </p>
+      <p class="mt-1 text-sm text-white/85">
+        <span class="font-semibold">Grade:</span> 8.59 / 10 (CGPA)
+        <span class="mx-2">·</span>
+        <span class="font-semibold">Credits:</span> 200
+      </p>
+      <p class="mt-1 text-sm text-white/85">
+        <span class="font-semibold">Thesis topic:</span>
+        <a href="/frp-impact.html"
+           class="underline decoration-accent/60 underline-offset-4 hover:text-accent">
+          Simulation study of low-velocity impact on FRPs.
+        </a>
+      </p>
+    </article>
+  </div>
+</section>
+
+<footer class="py-10 text-center text-sm text-white/80">
+  © <span id="y"></span> Ashish Vayangankar
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
