@@ -22,6 +22,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-800 via-teal-900 to-emerald-900">
+
+  <!-- subtle engineering background (under gradient) -->
+  <div class="fixed inset-0 -z-20 opacity-25"
+       style="background-image:url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&w=2000&q=80'); background-size:cover; background-position:center;"></div>
+
+  <!-- soft noise overlay -->
   <div class="fixed inset-0 pointer-events-none opacity-15 mix-blend-overlay -z-10"
        style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
 
@@ -29,11 +35,11 @@
   <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
     <div class="max-w-6xl mx-auto px-4 py-5">
       <nav class="flex items-center justify-center gap-8 text-base">
-        <a href="/" class="hover:text-accent/90 text-white/80">About</a>
-        <a href="/experience.html" class="text-white font-semibold">Experience</a>
-        <a href="/education.html" class="hover:text-accent/90 text-white/80">Education</a>
-        <a href="/skills.html" class="hover:text-accent/90 text-white/80">Skills</a>
-        <a href="/projects.html" class="hover:text-accent/90 text-white/80">Projects</a>
+        <a href="index.html"      class="hover:text-accent/90 text-white/80">About</a>
+        <a href="experience.html" class="text-white font-semibold">Experience</a>
+        <a href="education.html"  class="hover:text-accent/90 text-white/80">Education</a>
+        <a href="skills.html"     class="hover:text-accent/90 text-white/80">Skills</a>
+        <a href="projects.html"   class="hover:text-accent/90 text-white/80">Projects</a>
       </nav>
     </div>
   </header>
@@ -72,7 +78,7 @@
           Optimized modal parameters for headlamp components under random vibration by aligning linear FEA in Abaqus with experimental modal data.
         </p>
         <div class="mt-4">
-          <a href="/hella-forvia.html" class="inline-flex items-center gap-2 text-accent hover:underline">Read more →</a>
+          <a href="hella-forvia.html" class="inline-flex items-center gap-2 text-accent hover:underline">Read more →</a>
         </div>
       </article>
 
@@ -87,7 +93,7 @@
           Built “AbaqHomo” tool, a Python and Abaqus-based automation for RVE homogenization with periodic boundary conditions to obtain effective properties for piezoelectric polymer composites.
         </p>
         <div class="mt-4">
-          <a href="/fau-hiwi.html" class="inline-flex items-center gap-2 text-accent hover:underline">Read more →</a>
+          <a href="fau-hiwi.html" class="inline-flex items-center gap-2 text-accent hover:underline">Read more →</a>
         </div>
       </article>
 
@@ -102,7 +108,7 @@
           Designed and tested a quasi-zero-stiffness vibration isolator and validated Abaqus simulations against laboratory measurements.
         </p>
         <div class="mt-4">
-          <a href="/iisc-qzs.html" class="inline-flex items-center gap-2 text-accent hover:underline">Read more →</a>
+          <a href="iisc-qzs.html" class="inline-flex items-center gap-2 text-accent hover:underline">Read more →</a>
         </div>
       </article>
 
@@ -115,9 +121,9 @@
         <div class="text-sm text-white/80 mt-1">Jan 2021 – Jun 2021 · 6 months</div>
         <p class="mt-3 text-white/85 text-sm">
           Prepared print-ready CAD models for additive manufacturing and optimized part geometries for structural applications.
-        </p>
+        </p        >
         <div class="mt-4">
-          <a href="/3dprintzkart.html" class="inline-flex items-center gap-2 text-accent hover:underline">Read more →</a>
+          <a href="3dprintzkart.html" class="inline-flex items-center gap-2 text-accent hover:underline">Read more →</a>
         </div>
       </article>
 
