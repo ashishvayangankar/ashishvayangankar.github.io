@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rockfall Protection Net – FAU | Ashish Vayangankar</title>
+  <meta name="description" content="Particle–spring rockfall net simulation: modeled, validated contact, and studied the boulder drop response." />
+  <meta name="theme-color" content="#10b981" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Helvetica Neue","Arial","Noto Sans","sans-serif"] },
+          colors: { accent: { DEFAULT: "#10b981" } },
+          boxShadow: { soft: "0 14px 36px -16px rgba(0,0,0,.35)" }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { visibility: hidden; opacity: 0; }
+    html.ready { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  </style>
+</head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
+<script>document.documentElement.classList.add('ready')</script>
+
+<!-- subtle terrain/engineering background (under gradient) -->
+<div class="fixed inset-0 -z-20 opacity-15"
+     style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=80'); background-size:cover; background-position:center;"></div>
+
+<!-- soft noise overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-15 mix-blend-overlay -z-10"
+     style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <nav class="flex items-center justify-center gap-8 text-base">
+      <a href="index.html"      class="hover:text-accent/90 text-white/80">About</a>
+      <a href="experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
+      <a href="education.html"  class="hover:text-accent/90 text-white/80">Education</a>
+      <a href="skills.html"     class="hover:text-accent/90 text-white/80">Skills</a>
+      <a href="projects.html"   class="hover:text-accent/90 text-white/80">Projects</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
+  <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-8 py-10 md:px-12 md:py-12">
+    <h1 class="text-3xl md:text-5xl font-extrabold">Rockfall Protection Net — FAU</h1>
+    <p class="mt-2 text-white/90">Particle–spring (Kelvin–Voigt) model, validated contact, and boulder drop response.</p>
+  </div>
+</section>
+
+<!-- OVERVIEW (short) -->
+<section class="max-w-5xl mx-auto px-4 mt-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">What I built</h2>
+    <ul class="mt-3 space-y-2 text-white/90 leading-relaxed list-disc pl-5">
+      <li><span class="font-semibold">Net as a discretized grid:</span> square lattice of point masses connected by spring–damper elements (Kelvin–Voigt); edges clamped.</li>
+      <li><span class="font-semibold">Contact model:</span> normal contact between the boulder and net nodes via a Kelvin–Voigt law; benchmarked with simple sphere–sphere/plane cases.</li>
+      <li><span class="font-semibold">Scenarios:</span> static sag under gravity and a <em>boulder drop</em> to study deformation, arrest, and settling to equilibrium.</li>
+    </ul>
+
+    <h3 class="mt-5 text-xl font-extrabold">Key outcomes</h3>
+    <ul class="mt-3 space-y-2 text-white/90 leading-relaxed list-disc pl-5">
+      <li>The net <span class="font-semibold">captures and supports</span> the boulder, then oscillates and <span class="font-semibold">settles to a stable equilibrium</span>.</li>
+      <li>Stiffness and damping in the elements govern peak deflection and rebound—<span class="font-semibold">higher stiffness reduces sag</span>, while <span class="font-semibold">damping controls oscillations</span>.</li>
+      <li>Model extensions that improve realism: nonlinear spring behavior, shear links, frictional contact, pretension, and aerodynamic drag.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- FIGURE -->
+<section class="max-w-5xl mx-auto px-4 mt-6 mb-16">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">Final equilibrium state after impact</h2>
+    <figure class="mt-4 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+      <img src="rockfall_equilibrium.png"
+           alt="Final equilibrium configuration of the particle–spring net after boulder impact"
+           class="inline-block w-full md:w-3/5 h-auto object-contain mx-auto">
+      <figcaption class="p-3 text-sm text-white/80">
+        Net deformation after arresting the boulder; view shows the settled shape at static equilibrium.
+      </figcaption>
+    </figure>
+
+    <div class="mt-8 text-center">
+      <a href="projects.html"
+         class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+        ← Back to Projects
+      </a>
+    </div>
+  </article>
+</section>
+
+<footer class="py-10 text-center text-sm text-white/80">
+  © <span id="y"></span> Ashish Vayangankar
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
