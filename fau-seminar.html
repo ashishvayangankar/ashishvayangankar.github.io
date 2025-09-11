@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAU Seminar — Piezoelectric Composite Homogenization | Ashish Vayangankar</title>
+  <meta name="description" content="Seminar work at FAU: homogenization of piezoelectric polymer–ceramic RVEs in Abaqus with periodic boundary conditions; effective electromechanical properties and trends." />
+  <meta name="theme-color" content="#10b981" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Helvetica Neue","Arial","Noto Sans","sans-serif"] },
+          colors: { accent: { DEFAULT: "#10b981" } },
+          boxShadow: { soft: "0 14px 36px -16px rgba(0,0,0,.35)" }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { visibility: hidden; opacity: 0; }
+    html.ready { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  </style>
+</head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
+<script>document.documentElement.classList.add('ready')</script>
+
+<!-- subtle lab/engineering background -->
+<div class="fixed inset-0 -z-20 opacity-15"
+     style="background-image:url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2000&q=80'); background-size:cover; background-position:center;"></div>
+<div class="fixed inset-0 pointer-events-none opacity-15 mix-blend-overlay -z-10"
+     style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <nav class="flex items-center justify-center gap-8 text-base">
+      <a href="index.html"      class="hover:text-accent/90 text-white/80">About</a>
+      <a href="experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
+      <a href="education.html"  class="hover:text-accent/90 text-white/80">Education</a>
+      <a href="skills.html"     class="hover:text-accent/90 text-white/80">Skills</a>
+      <a href="projects.html"   class="hover:text-accent/90 text-white/80">Projects</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
+  <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-8 py-10 md:px-12 md:py-12">
+    <h1 class="text-3xl md:text-5xl font-extrabold">FAU Seminar — Piezoelectric Composite Homogenization</h1>
+    <p class="mt-2 text-lg text-white/90">Computing effective electromechanical properties from micro-models with periodic boundary conditions.</p>
+    <p class="mt-1 text-white/80">Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) · Seminar project</p>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="max-w-5xl mx-auto px-4">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">What this work is about</h2>
+    <p class="mt-3 text-white/90 leading-relaxed">
+      Many devices use <span class="font-semibold">piezoelectric polymer–ceramic composites</span> where a stiff, active inclusion
+      sits in a soft polymer matrix. Modeling a full product with every particle/fiber is impractical, so we compute a single
+      <span class="font-semibold">homogenized (effective) property matrix</span> from a small periodic unit cell (RVE) and use it at
+      component scale.
+    </p>
+
+    <div class="mt-5 flex flex-col md:flex-row items-center gap-6">
+      <figure class="rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 p-4">
+        <!-- rename your small equation image to this filename -->
+        <img src="seminar_block_matrix.png" alt="Macro constitutive block matrix [C*, e*, κ*]" class="w-64 md:w-80 h-auto object-contain">
+        <figcaption class="mt-2 text-sm text-white/80 text-center">
+          Macro constitutive relation: mechanical stiffness <em>C*</em>, piezoelectric coupling <em>e*</em>, dielectric permittivity <em>κ*</em>.
+        </figcaption>
+      </figure>
+      <ul class="text-white/90 leading-relaxed list-disc pl-5">
+        <li>Built RVE models in <span class="font-semibold">Abaqus</span> and applied <span class="font-semibold">periodic boundary conditions</span>.</li>
+        <li>Varied <span class="font-semibold">matrix stiffness</span> (PDMS soft ↔ stiff), <span class="font-semibold">inclusion type</span> (particle/fiber), and <span class="font-semibold">volume fraction</span> (5%/10%).</li>
+        <li>Ran unit mechanical/electrical load cases, volume-averaged fields, and assembled the <span class="font-semibold">effective property matrix</span>.</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- KEY RESULTS -->
+<section class="max-w-5xl mx-auto px-4 mt-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">Results at a glance</h2>
+
+    <!-- Mechanical grid -->
+    <figure class="mt-4 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+      <!-- rename Mechanical_U3.png to mechanical_u3_grid.png or update this path -->
+      <img src="mechanical_u3_grid.png" alt="Mechanical loading: displacement fields for particle/fiber, 5–10% vol., soft/stiff matrix" class="inline-block w-full md:w-2/3 h-auto object-contain mx-auto">
+      <figcaption class="p-3 text-sm text-white/80">Mechanical loading case — representative displacement fields across design points.</figcaption>
+    </figure>
+
+    <!-- Electrical grid -->
+    <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+      <!-- rename Electrical_U3.png to electrical_u3_grid.png or update this path -->
+      <img src="electrical_u3_grid.png" alt="Electrical loading: fields for particle/fiber, 5–10% vol., soft/stiff matrix" class="inline-block w-full md:w-2/3 h-auto object-contain mx-auto">
+      <figcaption class="p-3 text-sm text-white/80">Electrical loading case — representative fields (unit electrical excitation).</figcaption>
+    </figure>
+
+    <h3 class="mt-6 text-xl font-bold">Observed trends</h3>
+    <ul class="mt-3 space-y-2 text-white/90 leading-relaxed list-disc pl-5">
+      <li><span class="font-semibold">Matrix stiffness matters:</span> a stiffer matrix reduces overall deformation under mechanical loading and moderates electrical-to-mechanical coupling.</li>
+      <li><span class="font-semibold">Inclusion topology:</span> <em>fiber</em> inclusions generally show stronger through-thickness response and coupling than isolated particles at the same volume fraction.</li>
+      <li><span class="font-semibold">Volume fraction:</span> moving from 5% → 10% inclusion raises the effective stiffness and coupling magnitudes in the homogenized matrix.</li>
+      <li><span class="font-semibold">Directional effects:</span> periodic arrangements create banded response patterns; the homogenized properties (block matrix above) capture this in Voigt form for component-scale FE use.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- TAKEAWAY -->
+<section class="max-w-5xl mx-auto px-4 mt-6 mb-16">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">What this enables</h2>
+    <p class="mt-3 text-white/90 leading-relaxed">
+      The workflow converts detailed microstructure behavior into a compact <span class="font-semibold">effective property matrix</span>
+      suitable for fast component simulations. Designers can screen polymer stiffness, inclusion type, and volume fraction
+      without re-meshing full assemblies—useful for early design and optimization studies.
+    </p>
+
+    <div class="mt-8 text-center">
+      <a href="projects.html" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+        ← Back to Projects
+      </a>
+    </div>
+  </article>
+</section>
+
+<footer class="py-10 text-center text-sm text-white/80">
+  © <span id="y"></span> Ashish Vayangankar
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
