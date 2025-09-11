@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nanoparticle-Aided Hyperthermia | Ashish Vayangankar</title>
+  <meta name="description" content="COMSOL-based study of microwave hyperthermia for liver tumors and the effect of magnetic nanoparticles on heating rate and uniformity." />
+  <meta name="theme-color" content="#10b981" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Helvetica Neue","Arial","Noto Sans","sans-serif"] },
+          colors: { accent: { DEFAULT: "#10b981" } },
+          boxShadow: { soft: "0 14px 36px -16px rgba(0,0,0,.35)" }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { visibility: hidden; opacity: 0; }
+    html.ready { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  </style>
+</head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
+<script>document.documentElement.classList.add('ready')</script>
+
+<!-- subtle medical/heatmap background (under gradient) -->
+<div class="fixed inset-0 -z-20 opacity-15"
+     style="background-image:url('https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=2000&q=80');
+            background-size:cover;background-position:center;"></div>
+<!-- soft noise overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-15 mix-blend-overlay -z-10"
+     style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <nav class="flex items-center justify-center gap-8 text-base">
+      <a href="index.html"      class="hover:text-accent/90 text-white/80">About</a>
+      <a href="experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
+      <a href="education.html"  class="hover:text-accent/90 text-white/80">Education</a>
+      <a href="skills.html"     class="hover:text-accent/90 text-white/80">Skills</a>
+      <a href="projects.html"   class="hover:text-accent/90 text-white/80">Projects</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
+  <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-8 py-10 md:px-12 md:py-12">
+    <h1 class="text-3xl md:text-5xl font-extrabold">Nanoparticle-Aided Hyperthermia</h1>
+    <p class="mt-2 text-lg text-white/90">COMSOL multiphysics modelling for liver-tumor ablation</p>
+    <p class="mt-1 text-white/80">2021 · BMS College of Engineering</p>
+    <p class="mt-4 text-white/90">
+      Published article: 
+      <a href="https://ijisrt.com/assets/upload/files/IJISRT21DEC698.pdf" target="_blank" rel="noopener" class="underline decoration-accent/60 underline-offset-4 hover:text-accent">
+        IJISRT (Vol. 6, Issue 12, 2021)
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="max-w-5xl mx-auto px-4">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">What I did</h2>
+    <ul class="mt-3 space-y-2 text-white/90 leading-relaxed list-disc pl-5">
+      <li>Built a coupled electromagnetics–bioheat model in <span class="font-semibold">COMSOL</span> to study microwave hyperthermia around a coaxial slot antenna.</li>
+      <li>Modelled tissue heating with the Pennes bioheat equation and thermal damage using an Arrhenius-type rate; compared baseline hyperthermia with a nanoparticle-enhanced case.</li>
+      <li>Parameterized inputs (power, exposure time) and quantified thermal coverage and time-to-necrosis thresholds near clinically relevant limits.</li>
+    </ul>
+
+    <h2 class="text-2xl font-extrabold mt-6">Key findings (short)</h2>
+    <ul class="mt-3 space-y-2 text-white/90 leading-relaxed list-disc pl-5">
+      <li>Nanoparticles improved the <span class="font-semibold">heating rate</span> and produced a <span class="font-semibold">more uniform</span> temperature field in the tumor region.</li>
+      <li>Baseline (no nanoparticles) required significantly longer exposure to reach ablative temperatures; nanoparticle-aided runs reduced that time substantially.</li>
+      <li>Isotherm maps confirmed smoother radial gradients with nanoparticles, lowering the risk of over-hot spots near the applicator.</li>
+    </ul>
+
+    <!-- FIGURE -->
+    <figure class="mt-6 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+      <!-- Save your image as hyperthermia_temp_10min.png or update the src below -->
+      <img src="hyperthermia_temp_10min.png" alt="Temperature distribution after 10 minutes of hyperthermia (baseline case)" class="inline-block w-full md:w-3/4 h-auto object-contain mx-auto">
+      <figcaption class="p-3 text-sm text-white/80">Temperature distribution after 10&nbsp;minutes of hyperthermia (baseline without nanoparticles).</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- BACK -->
+<section class="max-w-5xl mx-auto px-4 mt-6 mb-16">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <div class="text-center">
+      <a href="projects.html"
+         class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+        ← Back to Projects
+      </a>
+    </div>
+  </article>
+</section>
+
+<footer class="py-10 text-center text-sm text-white/80">
+  © <span id="y"></span> Ashish Vayangankar
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
