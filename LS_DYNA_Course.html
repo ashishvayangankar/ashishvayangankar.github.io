@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LS-DYNA Crash &amp; Explicit Simulations – Online Course | Ashish Vayangankar</title>
+  <meta name="description" content="Hands-on LS-DYNA course: ball–plate impact, crash-box and 3-point bend tests, honeycomb and stacked composites, modal and FRF analysis, and LS-PrePost workflows." />
+  <meta name="theme-color" content="#10b981" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto","Helvetica Neue","Arial","Noto Sans","sans-serif"] },
+          colors: { accent: { DEFAULT: "#10b981" } },
+          boxShadow: { soft: "0 14px 36px -16px rgba(0,0,0,.35)" }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { visibility: hidden; opacity: 0; }
+    html.ready { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  </style>
+</head>
+<body class="antialiased text-slate-100 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-900">
+<script>document.documentElement.classList.add('ready')</script>
+
+<!-- soft noise overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-20 mix-blend-overlay -z-10"
+     style="background-image:url('noise.png'); background-repeat:no-repeat; background-size:cover; background-position:center;"></div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/40 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 py-5">
+    <nav class="flex items-center justify-center gap-8 text-base">
+      <a href="/" class="hover:text-accent/90 text-white/80">About</a>
+      <a href="/experience.html" class="hover:text-accent/90 text-white/80">Experience</a>
+      <a href="/education.html" class="hover:text-accent/90 text-white/80">Education</a>
+      <a href="/skills.html" class="hover:text-accent/90 text-white/80">Skills</a>
+      <a href="/projects.html" class="hover:text-accent/90 text-white/80">Projects</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HEADER -->
+<section class="max-w-5xl mx-auto px-4 pt-12 pb-6">
+  <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-8 py-10 md:px-12 md:py-12">
+    <h1 class="text-3xl md:text-5xl font-extrabold">LS-DYNA Crash &amp; Explicit Simulations — Online Course</h1>
+    <p class="mt-2 text-lg text-white/90">Hands-on impact, crash, vibration and post-processing workflows (2025)</p>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="max-w-5xl mx-auto px-4">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">What I worked on</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li>Performed <span class="font-semibold">ball–plate impact analysis</span> and a supporting linear-static plate study.</li>
+      <li>Built and solved <span class="font-semibold">impact cases</span> including a crash box and 3-point bend setup.</li>
+      <li>Analyzed <span class="font-semibold">honeycomb and stacked composite panels</span> under impact and crushing.</li>
+      <li>Ran <span class="font-semibold">vibration simulations</span>: modal analysis and FRF extraction from time histories.</li>
+      <li>Used <span class="font-semibold">LS-PrePost</span> for meshing, contact definition, result evaluation, plots and snapshot generation.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- IMPACT & CRASH GIFS -->
+<section class="max-w-5xl mx-auto px-4 mt-6 grid md:grid-cols-2 gap-6">
+  <!-- Composite impact -->
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h3 class="text-xl font-extrabold">Ball–plate impact on composite panel</h3>
+    <p class="mt-2 text-white/90 leading-relaxed">
+      Explicit impact simulation of a rigid impactor striking a composite plate, capturing local damage,
+      wave propagation and contact forces. Used as a basis to tune time step, mass scaling and contact settings.
+    </p>
+    <figure class="mt-5 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+      <img src="Composite_Impact.gif" alt="LS-DYNA composite ball–plate impact simulation" class="inline-block w-full max-w-3xl h-auto object-contain mx-auto">
+      <figcaption class="p-3 text-sm text-white/80">Ball–plate impact animation from LS-PrePost.</figcaption>
+    </figure>
+  </article>
+
+  <!-- Crash box -->
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h3 class="text-xl font-extrabold">Crash-box / 3-point bend cases</h3>
+    <p class="mt-2 text-white/90 leading-relaxed">
+      Modeled a thin-walled crash box and a 3-point bend specimen to study folding modes, energy absorption
+      and reaction forces under dynamic loading.
+    </p>
+    <figure class="mt-5 rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10 text-center">
+      <img src="Crash_box.gif" alt="LS-DYNA crash-box simulation" class="inline-block w-full max-w-3xl h-auto object-contain mx-auto">
+      <figcaption class="p-3 text-sm text-white/80">Crash-box deformation and stress contours.</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- VIBRATION / FRF -->
+<section class="max-w-5xl mx-auto px-4 mt-6">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">Vibration and FRF analysis</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li>Computed natural frequencies and mode shapes of representative structural components.</li>
+      <li>Post-processed time histories to obtain <span class="font-semibold">FRF curves</span> at selected nodes and directions.</li>
+      <li>Checked mode participation, damping assumptions and peak responses against expectations from theory.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- WORKFLOW -->
+<section class="max-w-5xl mx-auto px-4 mt-6 mb-16">
+  <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
+    <h2 class="text-2xl font-extrabold">Typical LS-DYNA workflow</h2>
+    <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
+      <li>Pre-processing in LS-PrePost: geometry import, meshing, material and section assignment.</li>
+      <li>Definition of contact, boundary conditions and loading for impact, crash and vibration cases.</li>
+      <li>Solution control: timestep monitoring, mass scaling checks and output requests.</li>
+      <li>Post-processing: stress/strain contours, history plots, energy checks and export of GIFs and figures.</li>
+    </ul>
+
+    <div class="mt-8 text-center">
+      <a href="/projects.html" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 border border-accent/50 bg-accent/10 hover:bg-accent/15 font-medium">
+        ← Back to Projects
+      </a>
+    </div>
+  </article>
+</section>
+
+<footer class="py-10 text-center text-sm text-white/80">
+  © <span id="y"></span> Ashish Vayangankar
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
