@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LS-DYNA Crash &amp; Explicit Simulations – Online Course | Ashish Vayangankar</title>
-  <meta name="description" content="Hands-on LS-DYNA course: ball–plate impact, crash-box and 3-point bend tests, honeycomb and stacked composites, modal and FRF analysis, and LS-PrePost workflows." />
+  <meta name="description" content="Hands-on LS-DYNA course: impact on composite sandwich panels, crash box crush, vibration and FRF analysis, and LS-PrePost workflows." />
   <meta name="theme-color" content="#10b981" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -50,6 +50,16 @@
   <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft px-8 py-10 md:px-12 md:py-12">
     <h1 class="text-3xl md:text-5xl font-extrabold">LS-DYNA Crash &amp; Explicit Simulations — Online Course</h1>
     <p class="mt-2 text-lg text-white/90">Hands-on impact, crash, vibration and post-processing workflows (2025)</p>
+
+    <!-- Certificate link -->
+    <button id="openCert"
+            type="button"
+            class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline">
+      View certificate
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 </section>
 
@@ -58,11 +68,10 @@
   <article class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/10 shadow-soft p-6 md:p-8">
     <h2 class="text-2xl font-extrabold">What I worked on</h2>
     <ul class="mt-4 space-y-3 text-white/90 leading-relaxed list-disc pl-5">
-      <li>Performed <span class="font-semibold">ball–plate impact analysis</span> and a supporting linear-static plate study.</li>
-      <li>Built and solved <span class="font-semibold">impact cases</span> including a crash box and 3-point bend setup.</li>
-      <li>Analyzed <span class="font-semibold">honeycomb and stacked composite panels</span> under impact and crushing.</li>
-      <li>Ran <span class="font-semibold">vibration simulations</span>: modal analysis and FRF extraction from time histories.</li>
-      <li>Used <span class="font-semibold">LS-PrePost</span> for meshing, contact definition, result evaluation, plots and snapshot generation.</li>
+      <li>Performed impact analysis on honeycomb and stacked composite sandwich panels.</li>
+      <li>Modeled displacement-controlled crash box crush to study folding and energy absorption.</li>
+      <li>Ran modal and FRF-based vibration analyses on representative structural models.</li>
+      <li>Used LS-PrePost for meshing, contacts, plots, animations, and results reporting.</li>
     </ul>
   </article>
 </section>
@@ -132,9 +141,57 @@
   </article>
 </section>
 
+<!-- CERTIFICATE MODAL -->
+<div id="certModal"
+     class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70">
+  <div class="relative w-full max-w-4xl mx-4">
+    <button id="closeCert"
+            type="button"
+            class="absolute -top-3 -right-3 md:-top-4 md:-right-4 h-8 w-8 md:h-9 md:w-9 rounded-full bg-white text-slate-900 flex items-center justify-center shadow-soft hover:bg-slate-100"
+            aria-label="Close certificate">
+      ✕
+    </button>
+    <img src="Udemy_certificate_1.jpg"
+         alt="Udemy certificate – LS DYNA: A Simulation Training with Practical Applications"
+         class="w-full h-auto rounded-2xl bg-white shadow-soft">
+  </div>
+</div>
+
 <footer class="py-10 text-center text-sm text-white/80">
   © <span id="y"></span> Ashish Vayangankar
 </footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  const openCert = document.getElementById('openCert');
+  const closeCert = document.getElementById('closeCert');
+  const certModal = document.getElementById('certModal');
+
+  if (openCert && closeCert && certModal) {
+    const hideModal = () => {
+      certModal.classList.add('hidden');
+      certModal.classList.remove('flex');
+    };
+
+    const showModal = () => {
+      certModal.classList.remove('hidden');
+      certModal.classList.add('flex');
+    };
+
+    openCert.addEventListener('click', showModal);
+    closeCert.addEventListener('click', hideModal);
+
+    // Close when clicking outside the image
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) hideModal();
+    });
+
+    // ESC to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !certModal.classList.contains('hidden')) hideModal();
+    });
+  }
+</script>
 </body>
 </html>
